@@ -8,6 +8,7 @@ authors = ["Hikmat Samadov <s3m3dov@hotmail.com>"]
 python = "^3.10"
 langchain = "^0.0.165"
 openai = "^0.27.6"
+chromadb = "^0.3.22"
 
 [tool.poetry.dev-dependencies]
 
