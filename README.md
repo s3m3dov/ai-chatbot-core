@@ -16,7 +16,7 @@ poetry install
 ```
 
 ## Dependencies
-- Python 3.8+
+- Python 3.10+
 - LangChain library
 - OpenAI API
 - Chroma DB
