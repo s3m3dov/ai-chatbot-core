@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "ai-chatbot-core"
+version = "0.1.0"
+description = "Conversational AI application with GPT-3.5-turbo and LangChain. Saves conversation history and uses it to set context."
+authors = ["Hikmat Samadov <s3m3dov@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "ai_chatbot_core"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.0.170"
+openai = "^0.27.6"
+tiktoken = "^0.4.0"
+numpy = "^1.24.3"
+pandas = "^2.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
