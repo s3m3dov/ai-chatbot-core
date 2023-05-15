@@ -13,7 +13,12 @@ openai = "^0.27.6"
 tiktoken = "^0.4.0"
 numpy = "^1.24.3"
 pandas = "^2.0.1"
+chromadb = "^0.3.22"
 
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cpu"
+secondary = true
 
 [build-system]
 requires = ["poetry-core"]
