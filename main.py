@@ -5,9 +5,7 @@ generate responses to prompts.
 
 import json
 from json import JSONDecodeError
-
 from pathlib import Path
-from dotenv import dotenv_values
 
 from dotenv import dotenv_values
 from langchain import LLMChain
