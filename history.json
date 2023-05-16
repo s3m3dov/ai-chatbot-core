@@ -1,0 +1,18 @@
+[
+  {
+    "type": "human",
+    "data": {
+      "content": "jbhasgihasd is a new action movie produced by Hikmat Samadov",
+      "additional_kwargs": {},
+      "example": false
+    }
+  },
+  {
+    "type": "ai",
+    "data": {
+      "content": "Thank you for sharing that information with me. Is there anything specific you would like to know about the movie or its production? I'm here to help with any questions or concerns you may have.",
+      "additional_kwargs": {},
+      "example": false
+    }
+  }
+]
