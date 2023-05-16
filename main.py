@@ -5,15 +5,15 @@ generate responses to prompts.
 
 import json
 from json import JSONDecodeError
+
 from pathlib import Path
+from dotenv import dotenv_values
 
 from dotenv import dotenv_values
 from langchain import LLMChain
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.memory import (
-    VectorStoreRetrieverMemory,
-)
+from langchain.memory import VectorStoreRetrieverMemory
 from langchain.prompts.prompt import PromptTemplate
 from langchain.schema import messages_from_dict
 from langchain.vectorstores import Chroma
