@@ -14,7 +14,7 @@ log = print
 
 class ChatBot:
     def __init__(self):
-        self.filename = "../history.json"
+        self.filename = "../../history.json"
         self.vectordb = self.init_chroma_db()
         self.engine = VectorDBQA.from_chain_type(llm=OpenAI(), chain_type="stuff", vectorstore=self.vectordb)
 
