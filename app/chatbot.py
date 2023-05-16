@@ -10,7 +10,7 @@ from langchain.prompts.prompt import PromptTemplate
 from langchain.schema import messages_from_dict, BaseMessage
 from langchain.vectorstores import Chroma
 
-from .llms import gpt3_5_turbo
+from app.llms import gpt3_5_turbo
 
 
 class ChatBot:
@@ -45,7 +45,7 @@ class ChatBot:
             input_variables=["history", "input"],
             template=template,
         )
-        self.filename = "../history.json"
+        self.filename = "history.json"
         self.embeddings = OpenAIEmbeddings()
         self.vector_db = self.init_vector_db()
         self.memory = self.init_vector_store_memory()
@@ -57,7 +57,7 @@ class ChatBot:
         )
 
     def init_vector_store_memory(self) -> VectorStoreRetrieverMemory:
-        retriever = self.vector_db.as_retriever(search_kwargs=dict(k=2))
+        retriever = self.vector_db.as_retriever()
         memory = VectorStoreRetrieverMemory(retriever=retriever, memory_key="history")
 
         messages = self.get_messages()
