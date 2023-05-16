@@ -9,7 +9,7 @@ packages = [{include = "ai_chatbot_core"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 python-dotenv = "^1.0.0"
-langchain = "^0.0.170"
+langchain = "^0.0.171"
 openai = "^0.27.6"
 tiktoken = "^0.4.0"
 numpy = "^1.24.3"
@@ -17,6 +17,7 @@ pandas = "^2.0.1"
 chromadb = "^0.3.22"
 streamlit = "^1.22.0"
 streamlit-chat = "^0.0.2.2"
+jupyter = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]
