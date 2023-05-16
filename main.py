@@ -5,10 +5,9 @@ generate responses to prompts.
 
 import json
 from json import JSONDecodeError
-
-from dotenv import dotenv_values
 from pathlib import Path
 
+from dotenv import dotenv_values
 from langchain import LLMChain
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
@@ -83,7 +82,9 @@ class ChatBot:
         SmartBot:
         
         """
-        prompt_template = PromptTemplate(input_variables=["history", "input"], template=template)
+        prompt_template = PromptTemplate(
+            input_variables=["history", "input"], template=template
+        )
         self.filename = "history.json"
         self.memory = self.set_memory_context()
         self.engine = LLMChain(
@@ -109,14 +110,20 @@ class ChatBot:
             # Return an empty list.
             return []
 
-    def save_message(self, author: str, content: str, example: bool = False, **kwargs) -> None:
+    def save_message(
+        self,
+        author: str,
+        content: str,
+        example: bool = False,
+        **kwargs,
+    ) -> None:
         message = {
-            'type': author,
-            'data': {
-                'content': content,
-                'additional_kwargs': kwargs,
-                'example': example
-            }
+            "type": author,
+            "data": {
+                "content": content,
+                "additional_kwargs": kwargs,
+                "example": example,
+            },
         }
         loaded_messages = self.get_messages()
         loaded_messages.append(message)
@@ -134,7 +141,8 @@ class ChatBot:
 
         return memory
 
-    def _init_vector_store_memory(self) -> VectorStoreRetrieverMemory:
+    @staticmethod
+    def _init_vector_store_memory() -> VectorStoreRetrieverMemory:
         vector_db = Chroma(embedding_function=OpenAIEmbeddings())
         retriever = vector_db.as_retriever(search_kwargs=dict(k=1))
         memory = VectorStoreRetrieverMemory(retriever=retriever, memory_key="history")
@@ -151,7 +159,7 @@ if __name__ == "__main__":
             log("Goodbye!")
             break
         else:
-            bot.save_message(author='human', content=prompt_input)
+            bot.save_message(author="human", content=prompt_input)
             result = bot.engine.predict(input=prompt_input)
-            bot.save_message(author='ai', content=result)
+            bot.save_message(author="ai", content=result)
             log(result)
